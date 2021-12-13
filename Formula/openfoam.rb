@@ -15,7 +15,8 @@ class Openfoam < Formula
   depends_on "gnuplot"
   depends_on "metis"
   depends_on "openmpi"
-  depends_on "paraview"
+  # Nope; can't actually take a dependency on Casks.
+  # depends_on "paraview"
   depends_on "scotch"
 
   # Third-party patch to get OpenFOAM building on macOS
