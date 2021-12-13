@@ -4,7 +4,8 @@ An attempt to get OpenFOAM installing using Homebrew.
 
 This repo is a short-term project for experimentation and initial implementation. If this works, the intent is to submit the formula to Homebrew Core and then this separate tap repo can go away.
 
-This is not working yet! It's still in the initial development phase.
+| This is not working yet! It's still in the initial development phase. |
+| ---- |
 
 ## Usage
 
