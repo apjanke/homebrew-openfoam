@@ -5,9 +5,11 @@ class Openfoam < Formula
   sha256 "11e41e5b9a253ef592a8f6b79f6aded623b28308192d02cec1327078523b5a37"
   license "GPL-3.0-or-later"
 
+  depends_on xcode: :build
+
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "cga"
+  depends_on "cgal"
   depends_on "fftw"
   depends_on "flex"
   depends_on "gnuplot"
