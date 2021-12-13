@@ -17,6 +17,10 @@ brew tap apjanke/openfoam
 brew install openfoam
 ```
 
+## Requirements
+
+This is targeting macOS 10.15 and later. Homebrew no longer supports macOS 10.14 and earlier, so getting it working well there is kinda hopeless.
+
 ## References
 
 * [Foad's tweet expressing interest in an OpenFOAM Homebrew formula](https://twitter.com/fsfarimani/status/1470143618505744392)
@@ -30,12 +34,37 @@ brew install openfoam
   * [Wiki page on installing OpenFOAM 2.3.x on Mac](https://openfoamwiki.net/index.php/Installation/Mac_OS/OpenFOAM_2.3.x)
   * (The Wiki page on installing OpenFOAM 3.0.x on Mac just has broken links.)
 * [OpenFOAM v9 source repo](https://github.com/OpenFOAM/OpenFOAM-9)
+* There's an existing [mrklein/homebrew-foam Tap](https://github.com/mrklein/homebrew-foam), but that only has formulae for some dependencies, not OpenFOAM itself.
 
 ### Homebrew References
 
 There's an old request for this in the Homebrew issue tracker at <https://github.com/Homebrew/homebrew-core/issues/34327>.
 
 ## Contributor Stuff
+
+### Status
+
+Currently, the build isn't even working. It's failing with a bunch of errors related to basic C++ stuff, like this:
+
+```text
+xcrun c++ -std=c++14 -m64 -pthread -ftrapping-math -DOPENFOAM=2106 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-undefined-var-template -Wno-unknown-warning-option  -O3  -DNoRepository -ftemplate-depth-100  -iquote. -IlnInclude -I/Users/janke/tmp/openfoam/OpenFOAM-v2106/src/OpenFOAM/lnInclude -I/Users/janke/tmp/openfoam/OpenFOAM-v2106/src/OSspecific/POSIX/lnInclude   -fPIC -c POSIX.C -o /Users/janke/tmp/openfoam/OpenFOAM-v2106/build/darwin64ClangDPInt32Opt/src/OSspecific/POSIX/POSIX.o
+In file included from POSIX.C:37:
+In file included from /Users/janke/tmp/openfoam/OpenFOAM-v2106/src/OpenFOAM/lnInclude/OSspecific.H:42:
+In file included from /Users/janke/tmp/openfoam/OpenFOAM-v2106/src/OpenFOAM/lnInclude/fileNameList.H:49:
+In file included from /Users/janke/tmp/openfoam/OpenFOAM-v2106/src/OpenFOAM/lnInclude/fileName.H:51:
+In file included from /Users/janke/tmp/openfoam/OpenFOAM-v2106/src/OpenFOAM/lnInclude/word.H:46:
+In file included from /Users/janke/tmp/openfoam/OpenFOAM-v2106/src/OpenFOAM/lnInclude/string.h:56:
+/Applications/Xcode-11.3.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cstring:70:9: error: no member
+      named 'memcpy' in the global namespace
+using ::memcpy;
+      ~~^
+/Applications/Xcode-11.3.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cstring:71:9: error: no member
+      named 'memmove' in the global namespace
+using ::memmove;
+      ~~^
+```
+
+This was on macOS 10.14, which I'm using bc it's what my main Mac is running. Going to try this on 10.15+ and see if a newer Xcode does anything.
 
 ### Open Questions
 
