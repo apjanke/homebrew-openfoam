@@ -66,6 +66,10 @@ using ::memmove;
 
 This was on macOS 10.14, which I'm using bc it's what my main Mac is running. Going to try this on 10.15+ and see if a newer Xcode does anything.
 
+### TODO
+
+The first thing we need to do is get the basic OpenFOAM 9.x/v2106 build working on macOS against Homebrew dependencies. I'm doing this with interactive builds in an OpenFOAM source checkout, instead of under `brew`, because IMHO it's easier to see errors and iterate on that way when you're still having basic build issues.
+
 ### Open Questions
 
 * What's the right way to pull in `wmake`? This appears to be a custom tool distributed as part of OpenFOAM itself.
