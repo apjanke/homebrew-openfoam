@@ -1,6 +1,6 @@
 # homebrew-openfoam
 
-An attempt to get OpenFOAM installing using Homebrew.
+An attempt to get OpenFOAM installing using [Homebrew](https://brew.sh).
 
 This repo is a short-term project for experimentation and initial implementation. If this works, the intent is to submit the formula to Homebrew Core and then this separate tap repo can go away.
 
