@@ -71,6 +71,8 @@ This was on macOS 10.14, which I'm using bc it's what my main Mac is running. Go
 
 The first thing we need to do is get the basic OpenFOAM 9.x/v2106 build working on macOS against Homebrew dependencies. I'm doing this with interactive builds in an OpenFOAM source checkout, instead of under `brew`, because IMHO it's easier to see errors and iterate on that way when you're still having basic build issues.
 
+[This Build doc](https://develop.openfoam.com/Development/openfoam/-/blob/master/doc/Build.md) something about compiling an OpenFOAM visualization module for Paraview. Need to figure out how to do that, especially how it will work since Paraview is a cask and not a regular formula dependency. Looks like there's more detail in the "Optional Components" part of [this BUILD document](https://develop.openfoam.com/Development/ThirdParty-common/blob/develop/BUILD.md).
+
 ### Open Questions
 
 * What's the right way to pull in `wmake`? This appears to be a custom tool distributed as part of OpenFOAM itself.
